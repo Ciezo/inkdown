@@ -28,6 +28,9 @@
         .container {
             padding-top: 50px;
         }
+        .splash-welcome-content {
+            margin: 0 auto
+        }
         .splash-header {
             margin: 0 auto;
             background: no-repeat center;
@@ -40,9 +43,14 @@
             margin-top: -100px;
             margin-left: -250px;
         }
+        #home_active {
+            background-color: white;
+            border-radius: 10px;
+            color: black;
+        }
     </style>
 </head>
-<body id="onLoadPage">
+<body>
     
     <!-- Bootstap navbar  -->
     <?php include ("../components/injectables/navbar/home_navbar.php");?>
@@ -57,14 +65,5 @@
             </div>
         </div>
     </div>
-    
-    <script>
-        $(document).ready(function(){
-            setInterval(function(){
-            $("#onLoadPage").load("home.php");
-            }, 500); 
-            console.log("Load");
-        });
-    </script>
 </body>
 </html>

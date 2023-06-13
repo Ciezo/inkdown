@@ -8,9 +8,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav px-2">
-            <a class="nav-item nav-link active px-2" href="#">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link px-2" href="">Login</a>
-            <a class="nav-item nav-link px-2" href="">Admin</a>
+            <a class="nav-item nav-link px-2" id="home_active" href="../views/home.php">Home</a>
+            <a class="nav-item nav-link px-2" id="signup_active" href="../views/signup.php">Sign-up</a>
+            <a class="nav-item nav-link px-2" id="login_active" href="../views/login.php">Login</a>
         </div>
     </div>
 </nav>
