@@ -3,7 +3,7 @@ require("../../views/sessions/user/UserSession.php");
 UserSession::destroyUserSessionAndCookies();
 
 // Redirect to index
-header("location: ../../../../index.php");
+header("location: ../../views/home.php");
 
 // unset cookies
 if (isset($_SERVER['HTTP_COOKIE'])) {
