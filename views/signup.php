@@ -95,6 +95,7 @@ if (isset($_POST["register-user"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
         .register-form {
             margin: 0 auto;
             width: 50%;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         }
         .register-form .form-group {
             margin-bottom: 30px;
@@ -112,7 +113,7 @@ if (isset($_POST["register-user"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Content goes here -->
     <div class="container">
-        <div class="register-form">
+        <div class="register-form card px-4">
             <h2>Sign-up to Inkdown</h2>
             <form action="signup.php" method="POST">
                 <div class="form-group">
