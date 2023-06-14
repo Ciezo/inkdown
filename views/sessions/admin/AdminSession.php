@@ -28,6 +28,12 @@ class AdminSession {
             header("location: ../views/error/error.php");
         }
     }
+
+    public static function destroyAdminSessionAndCookies() {
+        session_destroy();
+        setcookie("admin_cookie_username", "", time() - 3600);
+        setcookie("admin_cookie_password", "", time() - 3600);
+    }
 }
 
 ?>

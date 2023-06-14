@@ -28,6 +28,12 @@ class UserSession {
             header("location: ../views/error/error.php");
         }
     }
+
+    public static function destroyUserSessionAndCookies() {
+        session_destroy();
+        setcookie("user_cookie_username", "", time() - 3600);
+        setcookie("user_cookie_password","", time() - 3600);
+    }
 }
 
 ?>

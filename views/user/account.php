@@ -40,7 +40,7 @@ if (!isset($_SESSION["user"])) {
 
     <!-- Content goes here -->
     <div class="container">
-        Home
+        Account
     </div>
 </body>
 </html>
