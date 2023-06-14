@@ -1,10 +1,69 @@
 <?php 
 session_start();
 require("../../config.php");
+require("../../components/utils.php");
+require("../../controller/NotesController.php");
+require("../../validations/NotesValidations.php");
 if (!isset($_SESSION["user"])) {
     // If not logged in, then redirect to not found
     header("location: ../error/error404.php");
 }
+
+
+$note_title = $note_body = $author = $date_posted = "";
+$_err_note_title = $_err_note_body = $_err_author = $_err_date_posted = "";
+
+// Default variables 
+$user_id = Utils::getUserID_inSession($_SESSION["user-username"]);
+$author = Utils::getUserFullName_inSession();
+
+if (isset($_POST["save-note"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
+
+    /** Validate note title */
+    $input_note_title = trim($_POST["note-title"]);
+    $validate_note_title = NotesValidations::check_note_title($input_note_title);
+    if (isset($validate_note_title)) {
+        $_err_note_title = $validate_note_title;
+    }
+    $note_title = $input_note_title;
+
+
+    /** Validate note body */
+    $input_note_body = trim($_POST["note-body"]);
+    $validate_note_body = NotesValidations::check_note_body($input_note_body);
+    if(isset($validate_note_body)) {
+        $_err_note_body = $validate_note_body;
+    }
+    $note_body = $input_note_body;
+
+
+    /** Validate all default variables */
+    $validate_authorExists = NotesValidations::check_note_author($author);
+    if (isset($validate_authorExists)) {
+        // If there is an error occurred, where no author is assigned.
+        // Assign the returning value to find the default author for the note
+        $input_author = $validate_authorExists; 
+    }
+    // Otherwise, we just get the author from the default variable
+
+    /** Validate date can be fetched locally */
+    $input_date_posted = date("d/m/Y");
+    $validate_date_posted = NotesValidations::check_note_date_posted($input_date_posted);
+    if(isset($validate_date_posted)) {
+        // If error occurs, simply assign the default returning date value upon checking
+        $date_posted = $validate_date_posted;
+    }
+    $date_posted = $input_date_posted; 
+
+
+    /** Check if no errors occurred */
+    if (empty($_err_note_title) && empty($_err_note_body) && empty($_err_author) && empty($_err_date_posted)) {
+        $notes_model = new Notes($author, $user_id, $note_title, $note_body);
+        $controller = NotesController::saveNote($notes_model, $user_id);
+    }
+    
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +91,9 @@ if (!isset($_SESSION["user"])) {
         .container {
             padding-top: 50px;
         }
+        .form-group {
+            padding-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -40,7 +102,29 @@ if (!isset($_SESSION["user"])) {
 
     <!-- Content goes here -->
     <div class="container">
-        Home
+        <div class="notes-editor">
+        <div class="card" style="width: max;">
+            <div class="card-header"><h2>Start writing...</h3></div>
+        </div>
+        <div class="card mt-2">
+            <div class="card-body">
+                <form action="home.php" method="POST">
+                    <div class="form-group">
+                        <label>My Title</label>
+                        <input type="text" name="note-title" placeholder="I want to write something about...." class="form-control <?php echo (!empty($_err_note_title)) ? 'is-invalid' : ''; ?>" value="<?php echo $note_title ; ?>">
+                        <span class="invalid-feedback"><?php echo $_err_note_title ;?></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="note-body" rows="12" placeholder="Begin writing about anything now...." class="form-control <?php echo (!empty($_err_note_body)) ? 'is-invalid' : ''; ?>" value="<?php echo $note_body ; ?>"></textarea>
+                        <span class="invalid-feedback"><?php echo $_err_note_body ;?></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="save-note" class="btn btn-outline-success form-control" value="Save this note">
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
     </div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <?php 
 session_start();
 require("../../config.php");
+require("../../components/utils.php");
 if (!isset($_SESSION["user"])) {
     // If not logged in, then redirect to not found
     header("location: ../error/error404.php");

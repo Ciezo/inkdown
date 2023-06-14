@@ -10,12 +10,23 @@
         <div class="navbar-nav px-2">
             <a class="nav-item nav-link btn btn-outline-light px-2" id="home_active" href="../../views/user/home.php"><i class="fa-solid fa-house-chimney"></i> My Editor</a>
             <a class="nav-item nav-link btn btn-outline-light px-2" id="signup_active" href="../../views/user/notes.php"><i class="fa-solid fa-note-sticky"></i> My Notes</a>
-            <a class="nav-item nav-link btn btn-outline-light px-2" id="login_active" href="../../views/user/feeds.php"><i class="fa-solid fa-square-rss"></i> My Feeds</a>
+            <a class="nav-item nav-link btn btn-outline-light px-2" id="login_active" href="../../views/user/trash.php"><i class="fa-solid fa-trash"></i> Trash</a>
             <div class="dropdown show">
             <a class="btn btn-outline-dark dropdown-toggle mx-3" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 More Options
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <span class="dropdown-item">
+                  <b>
+                    <?php 
+                      // require("../../components/utils.php");\
+                      /** @note This is commented because
+                       *  the Utils MUST ALWAYS BE DECLARED ON TOP OF THE PHP PAGE
+                       */
+                      echo "Signed-in as, ".Utils::getUserFullName_inSession();
+                    ?>
+                  </b>
+                </span>
                 <a class="dropdown-item" href="../../views/user/account.php"><i class="fa-solid fa-users-rectangle"></i> My Account</a>
                 <button type="button" class="dropdown-item" data-toggle="modal" data-target="#logoutPrompt">
                     <i class="fa-solid fa-right-from-bracket"></i> Logout
