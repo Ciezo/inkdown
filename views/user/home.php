@@ -115,7 +115,7 @@ if (isset($_POST["save-note"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
                         <span class="invalid-feedback"><?php echo $_err_note_title ;?></span>
                     </div>
                     <div class="form-group">
-                        <textarea name="note-body" rows="12" placeholder="Begin writing about anything now...." class="form-control <?php echo (!empty($_err_note_body)) ? 'is-invalid' : ''; ?>" value="<?php echo $note_body ; ?>"></textarea>
+                        <textarea name="news-body" rows="12" placeholder="Begin writing about anything now...." class="form-control <?php echo (!empty($_err_note_body)) ? 'is-invalid' : ''; ?>"><?php echo $note_body; ?></textarea>
                         <span class="invalid-feedback"><?php echo $_err_note_body ;?></span>
                     </div>
                     <div class="form-group">

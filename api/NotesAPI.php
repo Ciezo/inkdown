@@ -47,6 +47,19 @@ class NotesAPI {
         return $notes_ls_byID; 
     }
 
+    public static function getNoteByNoteID($note_id) {
+        $sql = "SELECT * FROM NOTES WHERE note_id = '$note_id'";
+        $notes_ls_byNoteID = array();
+
+        require("../../config.php");
+        $results = mysqli_query($conn, $sql);
+        while ($rows = mysqli_fetch_assoc($results)) {
+            $notes_ls_byNoteID[] = $rows;
+        }
+            
+        return $notes_ls_byNoteID; 
+    }
+
     public static function updateNote($note_id, $user_id, $title, $body, $date_posted) {
         $sql = "UPDATE NOTES SET 
                     title = '$title',
@@ -56,7 +69,7 @@ class NotesAPI {
         
         require("../../config.php");
         if (mysqli_query($conn, $sql)) {
-            Print '<script>alert("Contents updated!");</script>';
+            header("location: ../user/notes.php");
         } else {
             header("location: ../error/error.php");
         }
@@ -67,7 +80,7 @@ class NotesAPI {
         
         require("../../config.php");
         if (mysqli_query($conn, $sql)) {
-
+            header("location: ../../views/user/notes.php");
         } else {
             header("location: ../error/error.php");
         }

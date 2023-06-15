@@ -20,6 +20,11 @@ class NotesController {
         return $notes_ls;
     }
 
+    public static function fetchNoteByNoteID($note_id) {
+        $notes_ls_byNoteID = NotesAPI::getNoteByNoteID($note_id);
+        return $notes_ls_byNoteID;
+    }
+
     public static function fetchNoteByUserID($user_id) {
         $notes_ls_byID = NotesAPI::getNotesListByUserID($user_id);
         return $notes_ls_byID;

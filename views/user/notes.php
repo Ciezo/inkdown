@@ -2,10 +2,17 @@
 session_start();
 require("../../config.php");
 require("../../components/utils.php");
+require("../../controller/NotesController.php");
 if (!isset($_SESSION["user"])) {
     // If not logged in, then redirect to not found
     header("location: ../error/error404.php");
 }
+
+/** Get the user ID 
+ * Fetch all notes by user in session
+*/
+$user_id = Utils::getUserID_inSession($_SESSION["user-username"]);
+$notes_ls = NotesController::fetchNoteByUserID(strval($user_id));
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +40,14 @@ if (!isset($_SESSION["user"])) {
         .container {
             padding-top: 50px;
         }
+        .note-tile {
+            /* margin: 0 auto;  */
+            text-align: left
+        }
+        .note-tile span {
+            flex-grow: 1;
+        }
+
     </style>
 </head>
 <body>
@@ -41,7 +56,29 @@ if (!isset($_SESSION["user"])) {
 
     <!-- Content goes here -->
     <div class="container">
-        Notes
+        <div class="notes-ls card px-4 mx-3 mb-4">
+            <h3>My Notes</h3>
+            <!-- 
+                @note
+                Each note will be rendered inside an anchor that redirects
+                to a composable content on a separate page
+             -->
+            <?php 
+                if(!empty($notes_ls)) {
+                    foreach ($notes_ls as $notes) {
+                        echo '<a class="note-tile card btn btn-outline-dark px-1 mx-2 mb-3" href="notes-edit.php?id='.$notes["note_id"].'">';
+                        echo    '<span><b>'.$notes["title"].'</b></span>';
+                        echo    '<p>'.$notes["body"].'</p>';
+                        echo    '<div class="card-footer">';
+                        echo        '<span>'.$notes["date_posted"].'</span>';
+                        echo    '</div>';
+                        echo '</a>';
+                    } 
+                } else {
+                    include("../../components/composable/emptyNotes.php");
+                }
+            ?>
+        </div>        
     </div>
 </body>
 </html>
