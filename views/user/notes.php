@@ -12,7 +12,6 @@ if (!isset($_SESSION["user"])) {
  * Fetch all notes by user in session
 */
 $user_id = Utils::getUserID_inSession($_SESSION["user-username"]);
-$notes_ls = NotesController::fetchNoteByUserID(strval($user_id));
 ?>
 
 <!DOCTYPE html>
@@ -64,6 +63,7 @@ $notes_ls = NotesController::fetchNoteByUserID(strval($user_id));
                 to a composable content on a separate page
              -->
             <?php 
+                $notes_ls = NotesController::fetchNoteByUserID(strval($user_id));
                 if(!empty($notes_ls)) {
                     foreach ($notes_ls as $notes) {
                         echo '<a class="note-tile card btn btn-outline-dark px-1 mx-2 mb-3" href="notes-edit.php?id='.$notes["note_id"].'">';
