@@ -21,7 +21,7 @@ class Notes {
     }
 
     function getNoteUserID() {
-        return $this->id;
+        return $this->user_id;
     }
 
     function getNoteTitle() {

@@ -1,6 +1,7 @@
 <?php 
 session_start();
 require("../../config.php");
+require("../../components/utils.php");
 if (!isset($_SESSION["user"])) {
     // If not logged in, then redirect to not found
     header("location: ../error/error404.php");
@@ -40,7 +41,17 @@ if (!isset($_SESSION["user"])) {
 
     <!-- Content goes here -->
     <div class="container">
-        Account
+        <div class="card" style="width: 600px;">
+            <div class="card-header">
+                <h3><?php echo Utils::getUserFullName_inSession() ?></h3>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Birthday: <?php echo Utils::getUserBirthday(); ?></li>
+                    <li class="list-group-item">Username: <?php echo $_SESSION["user-username"]; ?></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
 </html>

@@ -10,7 +10,7 @@
         <div class="navbar-nav px-2">
             <a class="nav-item nav-link btn btn-outline-light px-2" id="home_active" href="../../views/user/home.php"><i class="fa-solid fa-house-chimney"></i> My Editor</a>
             <a class="nav-item nav-link btn btn-outline-light px-2" id="signup_active" href="../../views/user/notes.php"><i class="fa-solid fa-note-sticky"></i> My Notes</a>
-            <!-- <a class="nav-item nav-link btn btn-outline-light px-2" id="login_active" href="../../views/user/trash.php"><i class="fa-solid fa-trash"></i> Trash</a> -->
+            <a class="nav-item nav-link btn btn-outline-light px-2" id="login_active" href="../../views/user/trash.php"><i class="fa-solid fa-trash"></i> Trash</a>
             <div class="dropdown show">
             <a class="btn btn-outline-dark dropdown-toggle mx-3" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 More Options

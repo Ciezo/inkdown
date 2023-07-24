@@ -1,10 +1,17 @@
 <?php 
 session_start();
 require("../../config.php");
+require("../../components/utils.php");
+require("../../controller/TrashNoteController.php");
 if (!isset($_SESSION["user"])) {
     // If not logged in, then redirect to not found
     header("location: ../error/error404.php");
 }
+
+/** Get the user ID 
+ * Fetch all trash by user in session
+*/
+$user_id = Utils::getUserID_inSession($_SESSION["user-username"]);
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +39,14 @@ if (!isset($_SESSION["user"])) {
         .container {
             padding-top: 50px;
         }
+        .note-tile {
+            /* margin: 0 auto;  */
+            text-align: left;
+            background-color: #fab6bd; 
+        }
+        .note-tile span {
+            flex-grow: 1;
+        }
     </style>
 </head>
 <body>
@@ -40,7 +55,36 @@ if (!isset($_SESSION["user"])) {
 
     <!-- Content goes here -->
     <div class="container">
-        <h3>My trash</h3>
+        <div class="trash-ls card px-4 mx-3 mb-4">
+            <h3>My Trash</h3>
+            <!-- 
+                @note
+                Each note will be rendered inside an anchor that redirects
+                to a composable content on a separate page
+             -->
+            <?php 
+                $trash_ls = TrashNoteController::fetchTrashListByUserID($user_id);
+                if(!empty($trash_ls)) {
+                    foreach ($trash_ls as $trash) {
+                        echo '<div class="note-tile card px-1 mx-2 mb-3">';
+                        echo    '<span><b>'.$trash["title"].'</b></span>';
+                        echo    '<p>'.$trash["body"].'</p>';
+                        echo    '<div class="card-footer">';
+                        echo        '<span>'.$trash["date_posted"].'</span>';
+                        echo    '</div>';
+                        echo    '<div class="card-footer">';
+                        echo        '<span>';
+                        echo            '<a class="mx-1 btn btn-outline-danger btn-sm" href="trash-delete.php?id='.$trash["note_id"].'">Delete</a>';
+                        echo            '<a class="mx-1 btn btn-outline-success btn-sm" href="#?id='.$trash["note_id"].'">Restore</a>';
+                        echo        '</span>';
+                        echo    '</div>';
+                        echo '</div>';
+                    } 
+                } else {
+                    include("../../components/composable/emptyTrash.php");
+                }
+            ?>
+        </div>  
     </div>
 </body>
 </html>

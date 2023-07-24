@@ -14,6 +14,17 @@ class Utils {
         return $full_name;
     }
 
+    public static function getUserBirthday() {
+        require("../../config.php");
+        $current_author = $_SESSION["user-username"];
+        $sql = "SELECT birthday FROM USERS WHERE username = '$current_author'";
+        $results = mysqli_query($conn, $sql);
+        $results = mysqli_fetch_assoc($results);
+        $birthday = $results["birthday"];
+
+        return $birthday;
+    }
+
     public static function getUserID_inSession($username) {
         require("../../config.php");
         $sql = "SELECT user_id FROM USERS WHERE username = '$username'";

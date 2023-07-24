@@ -1,5 +1,4 @@
 <?php 
-require("Notes.php");
 
 class TrashNote {
 
