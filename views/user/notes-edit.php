@@ -126,7 +126,17 @@ if (isset($_POST["update-note"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="card mb-2">
                     <div class="card-body">
                         <div class="form-group">
-                            <textarea name="note-body" rows="15" class="form-control <?php echo (!empty($_err_note_body)) ? 'is-invalid' : ''; ?>"><?php echo $note_body; ?></textarea>
+                            <span>
+                                <div class="btn btn-sm btn-outline-dark" onclick="setBold()" title="Bold" data-toggle="tooltip"><i class="fa-solid fa-bold"></i></div>
+                                <div class="btn btn-sm btn-outline-dark" onclick="setItalic()" title="Italic" data-toggle="tooltip"><i class="fa-solid fa-italic"></i></div>
+                                <div class="btn btn-sm btn-outline-dark" onclick="setUL()" title="Insert bullets" data-toggle="tooltip"><i class="fa-solid fa-list"></i></div>
+                                <div class="btn btn-sm btn-outline-dark" onclick="setOL()" title="Insert numbering" data-toggle="tooltip"><i class="fa-solid fa-list-ol"></i></div>
+                                <div class="btn btn-sm btn-outline-dark" onclick="setBR()" title="Insert new line" data-toggle="tooltip"><i class="fa-solid fa-plus"></i></div>
+                                <div class="btn btn-sm btn-outline-dark" onclick="setAnchor()" title="Insert link" data-toggle="tooltip"><i class="fa-solid fa-link"></i></div>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="note-body" id="text-body" rows="15" placeholder="Begin writing about anything now...." class="form-control <?php echo (!empty($_err_note_body)) ? 'is-invalid' : ''; ?>"><?php echo $note_body; ?></textarea>
                             <span class="invalid-feedback"><?php echo $_err_note_body ;?></span>
                         </div>
                     </div>
@@ -165,4 +175,6 @@ if (isset($_POST["update-note"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
     </div>
+    <script type="text/javascript" src="../../js/setEditorSymbols.js"></script>
 </body>
+</html>
