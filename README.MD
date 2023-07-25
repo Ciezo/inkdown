@@ -51,6 +51,14 @@
             <td><b>CRUD</b></td>
             <td>The code ensures that all contents are running onto a PHP local API which acts as a "wrapper" to how logic and data handling are processed.</td>
         </tr>
+        <tr>
+            <td><b>Save, Edit, Remove, and Restore Notes</b></td>
+            <td>Inkdown has ways to create, edit, and delete personalized notes whilst maintaining the ability to archive and restore them.</td>
+        </tr>
+        <tr>
+            <td><b>No worries about lost notes</b></td>
+            <td>Using latest techniques and implementation for archiving and restoring. Inkdown can not only archive your removed notes, but also restore them when needed.</td>
+        </tr>
     </tbody>
 </table>
 
