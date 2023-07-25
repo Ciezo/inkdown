@@ -9,19 +9,19 @@ if (!isset($_SESSION["user"])) {
 }
 
 $trash_id = "";
-if(isset($_POST["id"]) && !empty($_POST["id"])){
+if(isset($_POST["tid"]) && !empty($_POST["tid"])){
     $user_id = Utils::getUserID_inSession($_SESSION["user-username"]);
-    $trash_id = trim($_POST["id"]);
+    $trash_id = trim($_POST["tid"]);
     TrashNoteController::removeTrash($trash_id, $user_id);
 }
 
 else {
 
     // Try fetching id, and...
-    if(empty(trim($_GET["id"]))){
+    if(empty(trim($_GET["tid"]))){
         // And if the ID is empty 
         // Get URL parameter for extraction
-        $trash_id =  trim($_GET["id"]);
+        $trash_id =  trim($_GET["tid"]);
     }
 
 }
@@ -65,7 +65,7 @@ else {
         <h3>Delete forever?</h3>
         <form action="trash-delete.php" method="POST">
             <div class="alert alert-danger">
-                <input type="hidden" name="id" value="<?php echo trim($_GET["id"]); ?>">
+                <input type="hidden" name="tid" value="<?php echo trim($_GET["tid"]); ?>">
                 <p>Upon deletion. This record cannot be retrieved. Please, proceed with caution</p>
                 <p>
                     <input type="submit" value="Yes" class="btn btn-danger">

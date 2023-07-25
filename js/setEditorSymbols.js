@@ -38,5 +38,5 @@ function setBR() {
 }
 
 function setAnchor() {
-    insertTextAtCursor(`<a href="link"></a>`);
+    insertTextAtCursor(`<a href="https://">Link</a>`);
 }

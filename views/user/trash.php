@@ -75,7 +75,7 @@ $user_id = Utils::getUserID_inSession($_SESSION["user-username"]);
                         echo    '</div>';
                         echo    '<div class="card-footer">';
                         echo        '<span>';
-                        echo            '<a class="mx-1 btn btn-outline-danger btn-sm" href="trash-delete.php?id='.$trash["note_id"].'">Delete</a>';
+                        echo            '<a class="mx-1 btn btn-outline-danger btn-sm" href="trash-delete.php?tid='.$trash["trash_id"].'">Delete</a>';
                         echo            '<a class="mx-1 btn btn-outline-success btn-sm" href="trash-restore.php?id='.$trash["note_id"].
                                                                                                                     '&uid='.$user_id. 
                                                                                                                     '&tid='.$trash["trash_id"].'">Restore</a>';
