@@ -13,7 +13,7 @@ if (!isset($_SESSION["user"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../assets/icon/icon.png" type="image/png">
+    <link rel="shortcut icon" href="../../assets/icon/icon.png" type="image/png">
     <title>Account | Inkdown</title>
 
     <!-- Bootstrap -->
