@@ -1,8 +1,14 @@
 # Inkdown 
 
 <center>
-    <h1>A lightweight yet simple experience!</h1>
-    <p>An in-browser text editor for all your simple needs.</p>
+    <h1 align="center">A lightweight yet simple experience!</h1>
+    <p align="center">An in-browser text editor for all your simple needs.</p>
+    <p align="center">Try it out now!</p>
+    <p align="center">
+        <a href="https://inkdown-editor-85260732e1ff.herokuapp.com/"> 
+            <img src="assets/img/inkdown.png" alt="Inkdown" width=300 height=auto/>
+        </a>
+    </p>
 </center>
 <hr>
 

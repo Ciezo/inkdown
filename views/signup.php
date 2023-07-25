@@ -72,6 +72,7 @@ if (isset($_POST["register-user"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/icon/icon.png" type="image/png">
     <title>Sign-up | Register now to Inkdown!</title>
 
     <!-- Bootstrap -->
