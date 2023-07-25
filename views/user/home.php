@@ -87,7 +87,11 @@ if (isset($_POST["save-note"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();   
+        });
+    </script>
     <style>
         .container {
             padding-top: 50px;
@@ -116,7 +120,17 @@ if (isset($_POST["save-note"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
                         <span class="invalid-feedback"><?php echo $_err_note_title ;?></span>
                     </div>
                     <div class="form-group">
-                        <textarea name="note-body" rows="12" placeholder="Begin writing about anything now...." class="form-control <?php echo (!empty($_err_note_body)) ? 'is-invalid' : ''; ?>"><?php echo $note_body; ?></textarea>
+                        <span>
+                            <div class="btn btn-sm btn-outline-dark" onclick="setBold()" title="Bold" data-toggle="tooltip"><i class="fa-solid fa-bold"></i></div>
+                            <div class="btn btn-sm btn-outline-dark" onclick="setItalic()" title="Italic" data-toggle="tooltip"><i class="fa-solid fa-italic"></i></div>
+                            <div class="btn btn-sm btn-outline-dark" onclick="setUL()" title="Insert bullets" data-toggle="tooltip"><i class="fa-solid fa-list"></i></div>
+                            <div class="btn btn-sm btn-outline-dark" onclick="setOL()" title="Insert numbering" data-toggle="tooltip"><i class="fa-solid fa-list-ol"></i></div>
+                            <div class="btn btn-sm btn-outline-dark" onclick="setBR()" title="Insert new line" data-toggle="tooltip"><i class="fa-solid fa-plus"></i></div>
+                            <div class="btn btn-sm btn-outline-dark" onclick="setAnchor()" title="Insert link" data-toggle="tooltip"><i class="fa-solid fa-link"></i></div>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="note-body" id="text-body" rows="12" placeholder="Begin writing about anything now...." class="form-control <?php echo (!empty($_err_note_body)) ? 'is-invalid' : ''; ?>"><?php echo $note_body; ?></textarea>
                         <span class="invalid-feedback"><?php echo $_err_note_body ;?></span>
                     </div>
                     <div class="form-group">
@@ -127,5 +141,49 @@ if (isset($_POST["save-note"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         </div>
     </div>
+    <script>
+        // Function to get the current cursor position
+        function getCursorPosition() {
+            const textBody = document.getElementById('text-body');
+            return textBody.selectionStart;
+        }
+
+        // Function to insert the specified text at the cursor position
+        function insertTextAtCursor(text) {
+            const textBody = document.getElementById('text-body');
+            const position = getCursorPosition();
+            const currentValue = textBody.value;
+            const newValue = currentValue.slice(0, position) + text + currentValue.slice(position);
+            textBody.value = newValue;
+            // Set the cursor position after the inserted text
+            textBody.setSelectionRange(position + text.length, position + text.length);
+            textBody.focus(); // Ensure the textarea retains focus
+        }
+
+        // Functions for each edit button
+        function setBold() {
+            insertTextAtCursor('<b></b>');
+        }
+
+        function setItalic() {
+            insertTextAtCursor('<i></i>');
+        }
+
+        function setUL() {
+            insertTextAtCursor('\n<ul>\n  <li></li>\n</ul>\n');
+        }
+
+        function setOL() {
+            insertTextAtCursor('\n<ol>\n  <li></li>\n</ol>\n');
+        }
+
+        function setBR() {
+            insertTextAtCursor('<br>');
+        }
+
+        function setAnchor() {
+            insertTextAtCursor(`<a href="link"></a>`);
+        }
+    </script>
 </body>
 </html>
