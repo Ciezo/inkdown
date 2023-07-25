@@ -57,8 +57,25 @@ class TrashNoteAPI {
         return $trash_ls_byID;
     }
 
+    public static function getTrashNoteByNoteID($note_id) {
+        $sql = "SELECT * FROM TRASH where note_id = '$note_id'";
+        $trash_ls_byID = array();
+
+        require("../../config.php");
+        $results = mysqli_query($conn, $sql);
+        while ($rows = mysqli_fetch_assoc($results)) {
+            $trash_ls_byID[] = $rows;
+        }
+
+        if (empty($trash_ls_byID)) {
+            return;
+        }
+
+        return $trash_ls_byID;
+    }
+
     public static function deleteTrashNote($trash_id, $user_id) {
-        $sql = "DELETE FROM TRASH WHERE note_id = '$trash_id' AND user_id = '$user_id'";
+        $sql = "DELETE FROM TRASH WHERE trash_id = '$trash_id' AND user_id = '$user_id'";
 
         require("../../config.php");
         if (mysqli_query($conn, $sql)) {

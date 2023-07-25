@@ -27,6 +27,11 @@ class TrashNoteController {
         return $trash_ls; 
     }
 
+    public static function fetchTrashListByNoteID($note_id) {
+        $trash_ls = TrashNoteAPI::getTrashNoteByNoteID($note_id);
+        return $trash_ls;
+    }
+
     public static function removeTrash($trash_id, $user_id) {
         TrashNoteAPI::deleteTrashNote($trash_id, $user_id);
     }
