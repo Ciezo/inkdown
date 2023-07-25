@@ -30,6 +30,14 @@
     </thead>
     <tbody>
         <tr>
+            <td><b>Fast, simple, and lightweight</b></td>
+            <td>Making personalized texts and notes with Inkdown is easy and simple</td>
+        </tr>
+        <tr>
+            <td><b>Editable contents</b></td>
+            <td>Set Bold, Italics, Lists, Numbering, and add new lines or links to your texts</td>
+        </tr>
+        <tr>
             <td><b>Designed to be persistent</b></td>
             <td>Inkdown can remember saved notes from different users</td>
         </tr>
