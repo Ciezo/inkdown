@@ -16,9 +16,9 @@
           <a class="nav-link" href="../../views/user/trash.php">Trash</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa-solid fa-gear"></i>
-          </a>
+          </button>
           <ul class="dropdown-menu">
             <li class="dropdown-item disabled">
               <span><i class="fa-regular fa-user"></i>
