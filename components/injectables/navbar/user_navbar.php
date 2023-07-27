@@ -18,6 +18,7 @@
         <li class="nav-item dropdown">
           <button class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa-solid fa-gear"></i>
+            More
           </button>
           <ul class="dropdown-menu">
             <li class="dropdown-item disabled">
