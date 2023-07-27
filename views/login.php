@@ -12,25 +12,24 @@ $_err_username = $_err_password = "";
 $login_as_role = "";
 
 // Check when form is submitted 
-if (isset($_POST["login-user"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST["login-user"]) || $_SERVER["REQUEST_METHOD"] == "POST") {
     
     /** Validate username */
     $input_username = trim($_POST["username"]);
-    if (empty($input_username)) {
-        $_err_username = "Please, provide a username!";
-    } else {
-        $username = $input_username;
-    }
+    $validate_username = UserValidations::login_check_username($input_username);
+    if(isset($validate_username)) {
+        $_err_username = $validate_username; 
+    } 
+    $username = $input_username;
 
 
     /** Validate username */
     $input_password = trim($_POST["password"]);
-    if (empty($input_password)) {
-        $_err_password = "Please, provide a password!";
-    } else {
-        $password = $input_password;
-    }
-
+    $validate_password = UserValidations::login_check_password($input_password);
+    if(isset($validate_password)) {
+        $_err_password = $validate_password; 
+    } 
+    $password = $input_password;
 
 
     /** Check if no errors occurred */
@@ -50,7 +49,7 @@ if (isset($_POST["login-user"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
                 UserSession::setUserCookies();
                 UserSession::sessionUserCheck();
             } else {
-                Print '<script>alert("Incorrect Username or Password!");</script>';
+                $_err_login_failed = "login-failed";
             }
         }
         
@@ -65,7 +64,7 @@ if (isset($_POST["login-user"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
                 AdminSession::setAdminCookies();
                 AdminSession::sessionAdminCheck();
             } else {
-                Print '<script>alert("Incorrect Username or Password!");</script>';
+                $_err_login_failed = "login-failed";
             }
         }
     }   
@@ -74,7 +73,7 @@ if (isset($_POST["login-user"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,9 +81,11 @@ if (isset($_POST["login-user"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../css/globals.css">
 
     <!-- Fonts and icons -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -96,17 +97,6 @@ if (isset($_POST["login-user"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     
     <style>
-        .container {
-            padding-top: 50px;
-        }
-        .login-form {
-            margin: 0 auto;
-            width: 50%;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        }
-        .login-form .form-group {
-            margin-bottom: 30px;
-        }
         #login_active {
             background-color: white;
             border-radius: 10px;
@@ -119,33 +109,53 @@ if (isset($_POST["login-user"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include ("../components/injectables/navbar/home_navbar.php");?>
 
     <!-- Content goes here -->
-    <div class="container">
-        <div class="login-form card px-4">
-            <form action="login.php" method="POST">
-                <div class="form-group">
-                    <div class="card-header mt-2 mb-2 border-dark">
-                        <label for="Logging-in as"><h2>Logging-in as</h2></label>
-                    </div>
-                    <select name="login-role" class="form-control">
-                        <option value="user">User</option>
-                        <option value="admin">Admin</option>
-                    </select>
+    <main>
+        <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+            <div class="row align-items-center g-lg-5 py-5">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Hello 👋 <br>Welcome back!</h1>
+                    <p class="col-lg-10 fs-4">Ready to get back in your productivity zone? Login now! 👉</p>
                 </div>
-                <div class="form-group">
-                    <label for="First Name">Username</label>
-                    <input type="text" name="username" placeholder="Ex. juan_cruz123" class="form-control <?php echo (!empty($_err_username)) ? 'is-invalid' : ''; ?>" value="<?php echo $username ; ?>">
-                    <span class="invalid-feedback"><?php echo $_err_username ;?></span>
+                <div class="col-md-10 mx-auto col-lg-5">
+                    <?php
+                        if(!empty($_err_login_failed)) {
+                            include("../components/composable/invalidLogin.php");
+                        }
+                    ?>
+                    <form class="needs-validation p-4 p-md-5 border rounded-3" novalidate action="login.php" method="POST">
+                        <div class="form-group mb-3">
+                            <label for="floatingRole" class="form-label">Logging-in as:</label>
+                            <select name="login-role" id="floatingRole"class="form-control">
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" name="username" placeholder="Username" id="floatingUsername" class="form-control <?php echo (!empty($_err_username)) ? 'is-invalid' : ''; ?>" value="<?php echo $username ; ?>">
+                            <label for="floatingUsername"><i class="fa-regular fa-user"></i> Username</label>
+                            <span class="invalid-feedback"><?php echo $_err_username ;?></span>
+                        </div>
+                        
+                        <div class="form-floating mb-3">
+                            <input type="password" name="password" placeholder="Password" id="floatingPassword" class="form-control <?php echo (!empty($_err_password)) ? 'is-invalid' : ''; ?>" value="<?php echo $password ; ?>">
+                            <label for="floatingPassword"><i class="fa-solid fa-vault"></i> Password</label>
+                            <span class="invalid-feedback"><?php echo $_err_password ;?></span>
+                        </div>
+
+                        <div class="checkbox mb-3">
+                            <label>
+                                <input type="checkbox" value="remember-me"> Stay signed-in
+                            </label>
+                        </div>
+
+                        <hr class="my-4">
+                        <input type="submit" name="login-user" class="w-100 btn btn-lg btn-success" value="Login">
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="Password">Password</label>
-                    <input type="password" name="password" placeholder="*******" class="form-control <?php echo (!empty($_err_password)) ? 'is-invalid' : ''; ?>" value="<?php echo $password ; ?>">
-                    <span class="invalid-feedback"><?php echo $_err_password ;?></span>
-                </div>
-                <!-- Submit -->
-                <input type="submit" name="login-user" class="form-control btn btn-outline-success">
-            </form>
+            </div>
         </div>
-    </div>
+    </main>
     
 </body>
 </html>

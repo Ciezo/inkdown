@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-    <a class="navbar-brand" href="#">      
+    <a class="navbar-brand" href="../views/home.php">      
         <i class="fa-solid fa-pen-nib"></i>
         Inkdown 
     </a>

@@ -134,6 +134,29 @@ class UserValidations {
         }
     }
 
+
+    public static function login_check_username($input_username) {
+        if (empty($input_username)) {
+            $_err_username = "Please, provide a username!";
+            return $_err_username;
+        }
+
+        else {
+            return "";
+        }
+    }
+
+    public static function login_check_password($input_password) {
+        if (empty($input_password)) {
+            $_err_password = "Please, provide a password!";
+            return $_err_password;
+        }
+
+        else {
+            return "";
+        }
+    }
+
 }
 
 ?>
