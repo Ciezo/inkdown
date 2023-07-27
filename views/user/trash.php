@@ -23,10 +23,12 @@ $user_id = Utils::getUserID_inSession($_SESSION["user-username"]);
     <title>Trash | Inkdown</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../css/main.css">
+    <script src="../../js/bootstrap.bundle.min.js"></script>
 
-
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../css/globals.css">
+    
     <!-- Fonts and icons -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/c36559a51c.js" crossorigin="anonymous"></script>

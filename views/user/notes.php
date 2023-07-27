@@ -24,7 +24,7 @@ $user_id = Utils::getUserID_inSession($_SESSION["user-username"]);
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../../css/main.css">
-    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom styles -->
     <link rel="stylesheet" href="../../css/globals.css">
