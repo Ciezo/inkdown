@@ -73,7 +73,7 @@ if (isset($_POST["update-note"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,9 +81,11 @@ if (isset($_POST["update-note"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Notes | Inkdown</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../css/main.css">
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../css/globals.css">
 
     <!-- Fonts and icons -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -127,12 +129,12 @@ if (isset($_POST["update-note"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="card-body">
                         <div class="form-group">
                             <span>
-                                <div class="btn btn-sm btn-outline-dark" onclick="setBold()" title="Bold" data-toggle="tooltip"><i class="fa-solid fa-bold"></i></div>
-                                <div class="btn btn-sm btn-outline-dark" onclick="setItalic()" title="Italic" data-toggle="tooltip"><i class="fa-solid fa-italic"></i></div>
-                                <div class="btn btn-sm btn-outline-dark" onclick="setUL()" title="Insert bullets" data-toggle="tooltip"><i class="fa-solid fa-list"></i></div>
-                                <div class="btn btn-sm btn-outline-dark" onclick="setOL()" title="Insert numbering" data-toggle="tooltip"><i class="fa-solid fa-list-ol"></i></div>
-                                <div class="btn btn-sm btn-outline-dark" onclick="setBR()" title="Insert new line" data-toggle="tooltip"><i class="fa-solid fa-plus"></i></div>
-                                <div class="btn btn-sm btn-outline-dark" onclick="setAnchor()" title="Insert link" data-toggle="tooltip"><i class="fa-solid fa-link"></i></div>
+                                <div class="btn btn-sm btn-outline-light" onclick="setBold()" title="Bold" data-toggle="tooltip"><i class="fa-solid fa-bold"></i></div>
+                                <div class="btn btn-sm btn-outline-light" onclick="setItalic()" title="Italic" data-toggle="tooltip"><i class="fa-solid fa-italic"></i></div>
+                                <div class="btn btn-sm btn-outline-light" onclick="setUL()" title="Insert bullets" data-toggle="tooltip"><i class="fa-solid fa-list"></i></div>
+                                <div class="btn btn-sm btn-outline-light" onclick="setOL()" title="Insert numbering" data-toggle="tooltip"><i class="fa-solid fa-list-ol"></i></div>
+                                <div class="btn btn-sm btn-outline-light" onclick="setBR()" title="Insert new line" data-toggle="tooltip"><i class="fa-solid fa-plus"></i></div>
+                                <div class="btn btn-sm btn-outline-light" onclick="setAnchor()" title="Insert link" data-toggle="tooltip"><i class="fa-solid fa-link"></i></div>
                             </span>
                         </div>
                         <div class="form-group">

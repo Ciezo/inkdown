@@ -1,40 +1,41 @@
-<nav class="navbar navbar-expand-lg navbar-light px-3" style="background-color:#827c7c;">
-    <a class="navbar-brand" href="#">      
-        <i class="fa-solid fa-pen-nib"></i>
-        Inkdown 
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="true" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-expand-lg bg-body-tertiary px-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">✒️ Inkdown</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav px-2">
-            <a class="nav-item nav-link btn btn-outline-light px-2" id="home_active" href="../../views/user/home.php"><i class="fa-solid fa-house-chimney"></i> My Editor</a>
-            <a class="nav-item nav-link btn btn-outline-light px-2" id="signup_active" href="../../views/user/notes.php"><i class="fa-solid fa-note-sticky"></i> My Notes</a>
-            <a class="nav-item nav-link btn btn-outline-light px-2" id="login_active" href="../../views/user/trash.php"><i class="fa-solid fa-trash"></i> Trash</a>
-            <div class="dropdown show">
-            <a class="btn btn-outline-dark dropdown-toggle mx-3" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                More Options
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <span class="dropdown-item">
-                  <b>
-                    <?php 
-                      // require("../../components/utils.php");\
-                      /** @note This is commented because
-                       *  the Utils MUST ALWAYS BE DECLARED ON TOP OF THE PHP PAGE
-                       */
-                      echo "Signed-in as, ".Utils::getUserFullName_inSession();
-                    ?>
-                  </b>
-                </span>
-                <a class="dropdown-item" href="../../views/user/account.php"><i class="fa-solid fa-users-rectangle"></i> My Account</a>
-                <button type="button" class="dropdown-item" data-toggle="modal" data-target="#logoutPrompt">
-                    <i class="fa-solid fa-right-from-bracket"></i> Logout
-                </button>
-            </div>
-            </div>
-        </div>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="../../views/user/home.php">Editor</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../views/user/notes.php">Notes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../views/user/trash.php">Trash</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-gear"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item disabled">
+              <span><i class="fa-regular fa-user"></i>
+                <b>
+                  <?php echo Utils::getUserFullName_inSession(); ?>
+                </b>
+              </span>
+            </li>
+            <li><a class="dropdown-item" href="../../views/user/account.php">Account</a></li>
+            <button type="button" class="dropdown-item" data-toggle="modal" data-target="#logoutPrompt">
+              Logout
+            </button>
+          </ul>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
 
 <!-- Modal pop-up to ask user for logging-out -->
