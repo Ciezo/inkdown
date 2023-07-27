@@ -45,7 +45,6 @@ $user_id = Utils::getUserID_inSession($_SESSION["user-username"]);
         .note-tile {
             /* margin: 0 auto;  */
             text-align: left;
-            background-color: #fab6bd; 
         }
         .note-tile span {
             flex-grow: 1;
@@ -69,7 +68,7 @@ $user_id = Utils::getUserID_inSession($_SESSION["user-username"]);
                 $trash_ls = TrashNoteController::fetchTrashListByUserID($user_id);
                 if(!empty($trash_ls)) {
                     foreach ($trash_ls as $trash) {
-                        echo '<div class="note-tile card px-1 mx-2 mb-3">';
+                        echo '<div class="note-tile alert alert-danger card px-4 mb-3">';
                         echo    '<span><b>'.$trash["title"].'</b></span>';
                         echo    '<p>'.$trash["body"].'</p>';
                         echo    '<div class="card-footer">';
