@@ -29,6 +29,12 @@
               </span>
             </li>
             <li><a class="dropdown-item" href="../../views/user/account.php">Account</a></li>
+            <hr>
+            <li><a class="dropdown-item" href="../../views/user/license.php">License</a></li>
+            <li><a class="dropdown-item" href="../../views/user/terms.php">Terms</a></li>
+            <li><a class="dropdown-item" href="../../views/user/privacy.php">Privacy</a></li>
+            <li><a class="dropdown-item" href="../../views/user/conduct.php">Conduct</a></li>
+            <hr>
             <button type="button" class="dropdown-item" data-toggle="modal" data-target="#logoutPrompt">
               Logout
             </button>

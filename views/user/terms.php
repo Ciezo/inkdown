@@ -16,11 +16,11 @@ if (!isset($_SESSION["user"])) {
     <title>Inkdown | Terms</title>
     
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="../css/main.css">
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../../css/main.css">
+    <script src="../../js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom styles -->
-    <link rel="stylesheet" href="../css/globals.css">
+    <link rel="stylesheet" href="../../css/globals.css">
 
     <!-- Fonts and icons -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -35,7 +35,7 @@ if (!isset($_SESSION["user"])) {
 <body>
 
     <!-- Bootstap navbar  -->
-    <?php include ("../components/injectables/navbar/home_navbar.php");?>
+    <?php include ("../../components/injectables/navbar/user_navbar.php");?>
     
     <main>
         <!-- Content goes here -->

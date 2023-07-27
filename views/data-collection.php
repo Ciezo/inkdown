@@ -97,7 +97,7 @@
                     <a href="https://www.linkedin.com/in/cloydvansecuya/">LinkedIn</a>
                 </div>
 
-                <a href="home.php" class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold">Back</a>
+                <button onclick="history.back()" class="btn btn-outline-info btn-sm px-4 me-sm-3 fw-bold">Back</button>
             </div>
         </div>
     </main>
