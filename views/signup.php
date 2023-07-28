@@ -93,9 +93,8 @@ if (isset($_POST["register-user"]) || $_SERVER["REQUEST_METHOD"] == "POST") {
     
     <style>
         #signup_active {
-            background-color: white;
-            border-radius: 10px;
-            color: black;
+            color: white;
+            font-weight:bold;
         }
     </style>
 </head>
@@ -105,7 +104,7 @@ if (isset($_POST["register-user"]) || $_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Content goes here -->
     <main>
-        <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+        <div class="container col-xl-10 col-xxl-10 px-4 py-5">
             <div class="row align-items-center g-lg-5 py-5">
                 <div class="col-lg-7 text-center text-lg-start">
                     <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Embark on an Extraordinary Journey with Inkdown! 🚀</h1>

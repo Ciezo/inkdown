@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="../assets/icon/icon.png" type="image/png">
-    <title>Error</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Invalid Request</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../../css/main.css">
+    <script src="../../js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../css/globals.css">
+
     <style>
         .wrapper{
             width: 600px;

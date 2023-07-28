@@ -29,9 +29,8 @@
     
     <style>
         #home_active {
-            background-color: white;
-            border-radius: 10px;
-            color: black;
+            color: white;
+            font-weight:bold;
         }
     </style>
 </head>
@@ -42,9 +41,9 @@
     
     <main>
         <!-- Content goes here -->
-        <div class="p-4 mx-4 mt-3 border rounded-3 mb-5">
-            <div class="container-sm mx-auto pt-5">
-                <div class="px-4 py-5 my-5 text-center">
+        <div class="container-sm mx-auto pt-5">
+            <div class="p-4 p-md-5 border rounded-3 mb-5">
+                <div class="text-center">
                     <h1 class="display-1 fw-bold text-body-emphasis">✒️ Inkdown</h1>
                     <div class="col-lg-6 mx-auto">
                         <p class="display-4 lead mb-4">
@@ -63,10 +62,8 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="p-4 mx-4 border rounded-3 mb-5">
-            <div class="container-sm mx-auto">
+            <div class="p-4 p-md-5 border rounded-3 mb-5">
                 <div class="row flex-lg-row align-items-center g-5 py-5">
                     <div class="col-lg-6">
                         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Unleash Your Creativity</h1>
@@ -79,10 +76,8 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="p-4 mx-4 border rounded-3 mb-5">
-            <div class="container-sm mx-auto">
+            <div class="p-4 p-md-5 border rounded-3 mb-5">
                 <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
                     <div class="col-lg-6">
                         <h1 class="display-5 fw-bold text-body-emphasis lh1-1 mb-3">Always Remembered</h1>
@@ -94,10 +89,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="p-4 mx-4 border rounded-3 mb-5">
-            <div class="container-sm mx-auto">
+            
+            <div class="p-4 p-md-5 border rounded-3 mb-5">
                 <div class="row flex-lg-row align-items-center g-5 py-5">
                     <div class="col-lg-6">
                         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Lightning-Fast Data Retrieval</h1>
@@ -109,27 +102,21 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="p-4 mx-4 border rounded-3 mb-5">
-            <div class="container-sm mx-auto">
-                <div class="container-sm mx-auto">
-                    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-                        <div class="col-lg-6">
-                            <h1 class="display-5 fw-bold text-body-emphasis lh1-1 mb-3">Seamless 24/7 Access</h1>
-                        </div>
-                        <div class="col-lg-6">
-                            <p class="lead">
-                                Inkdown deploys a remote database pipeline, guaranteeing 24/7 access for all users. Your notes are always within reach, no matter where you are.
-                            </p>
-                        </div>
+            
+            <div class="p-4 p-md-5 border rounded-3 mb-5">
+                <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                    <div class="col-lg-6">
+                        <h1 class="display-5 fw-bold text-body-emphasis lh1-1 mb-3">Seamless 24/7 Access</h1>
+                    </div>
+                    <div class="col-lg-6">
+                        <p class="lead">
+                            Inkdown deploys a remote database pipeline, guaranteeing 24/7 access for all users. Your notes are always within reach, no matter where you are.
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="p-4 mx-4 border rounded-3 mb-5">
-            <div class="container-sm mx-auto">
+            <div class="p-4 p-md-5 border rounded-3 mb-5">
                 <div class="row flex-lg-row align-items-center g-5 py-5">
                     <div class="col-lg-6">
                         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Scale with Ease</h1>
@@ -141,27 +128,21 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="p-4 mx-4 border rounded-3 mb-5">
-            <div class="container-sm mx-auto">
-                <div class="container-sm mx-auto">
-                    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-                        <div class="col-lg-6">
-                            <h1 class="display-5 fw-bold text-body-emphasis lh1-1 mb-3">Your Space, Your Way</h1>
-                        </div>
-                        <div class="col-lg-6">
-                            <p class="lead">
-                                We believe in user-centric design, and that's why Inkdown ensures that each user has access to their own respective pages. Enjoy a seamless and personalized experience every time.
-                            </p>
-                        </div>
+            <div class="p-4 p-md-5 border rounded-3 mb-5">
+                <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                    <div class="col-lg-6">
+                        <h1 class="display-5 fw-bold text-body-emphasis lh1-1 mb-3">Your Space, Your Way</h1>
+                    </div>
+                    <div class="col-lg-6">
+                        <p class="lead">
+                            We believe in user-centric design, and that's why Inkdown ensures that each user has access to their own respective pages. Enjoy a seamless and personalized experience every time.
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="p-4 mx-4 border rounded-3 mb-5">
-            <div class="container-sm mx-auto">
+            <div class="p-4 p-md-5 border rounded-3 mb-5">
                 <div class="row flex-lg-row align-items-center g-5 py-5">
                     <div class="col-lg-6">
                         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Elegance and Intuition</h1>
@@ -173,10 +154,8 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="p-4 mx-4 border rounded-3 mb-5">
-            <div class="container-sm mx-auto">
+            <div class="p-4 p-md-5 border rounded-3 mb-5">
                 <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
                     <div class="col-lg-6">
                         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">A Symphony of Functionality</h1>
@@ -188,10 +167,8 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="p-4 mx-4 border rounded-3 mb-5">
-            <div class="container-sm mx-auto">
+            <div class="p-4 p-md-5 border rounded-3 mb-5">
                 <div class="row flex-lg-row align-items-center g-5 py-5">
                     <div class="col-lg-6">
                         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Archive and Restore</h1>
@@ -203,10 +180,8 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="p-4 mx-4 border ronded-3 mb-5">
-            <div class="container-sm mx-auto">
+            <div class="p-4 p-md-5 border ronded-3 mb-5">
                 <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
                     <div class="col-lg-6">
                         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Save, Edit, Remove, and Restore Notes</h1>
@@ -219,10 +194,8 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="p-4 mx-4 border rounded-3 mb-5">
-            <div class="container-sm mx-auto">
+            <div class="p-4 p-md-5 border rounded-3 mb-5">
                 <div class="row flex-lg-row align-items-center g-5 py-5">
                     <div class="col-lg-6">
                         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">The future of note taking</h1>

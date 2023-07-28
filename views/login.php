@@ -98,9 +98,8 @@ if (isset($_POST["login-user"]) || $_SERVER["REQUEST_METHOD"] == "POST") {
     
     <style>
         #login_active {
-            background-color: white;
-            border-radius: 10px;
-            color: black;
+            color: white;
+            font-weight:bold;
         }
     </style>
 </head>

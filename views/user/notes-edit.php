@@ -106,6 +106,10 @@ if (isset($_POST["update-note"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
         .form-group {
             padding-bottom: 10px;
         }
+        #notes_active{
+            color:white;
+            font-weight:bold;
+        }
     </style>
 </head>
 <body>

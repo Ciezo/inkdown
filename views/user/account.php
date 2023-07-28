@@ -36,6 +36,10 @@ if (!isset($_SESSION["user"])) {
         .container {
             padding-top: 50px;
         }
+        #acc_active {
+            color:white;
+            font-weight:bold;
+        }
     </style>
 </head>
 <body>

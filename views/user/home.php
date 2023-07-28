@@ -101,6 +101,10 @@ if (isset($_POST["save-note"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
         .form-group {
             padding-bottom: 10px;
         }
+        #home_active {
+            color:white;
+            font-weight:bold;
+        }
     </style>
 </head>
 <body>
@@ -108,39 +112,39 @@ if (isset($_POST["save-note"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include ("../../components/injectables/navbar/user_navbar.php");?>
 
     <!-- Content goes here -->
-    <div class="container">
+    <div class="container-sm mx-auto pt-5 pb-3">
         <div class="notes-editor">
-        <div class="card" style="width: max;">
-            <div class="card-header"><h2>Start writing...</h3></div>
-        </div>
-        <div class="card mt-2">
-            <div class="card-body">
-                <form action="home.php" method="POST">
-                    <div class="form-group">
-                        <label>My Title</label>
-                        <input type="text" name="note-title" placeholder="I want to write something about...." class="form-control <?php echo (!empty($_err_note_title)) ? 'is-invalid' : ''; ?>" value="<?php echo $note_title ; ?>">
-                        <span class="invalid-feedback"><?php echo $_err_note_title ;?></span>
-                    </div>
-                    <div class="form-group">
-                        <span>
-                            <div class="btn btn-sm btn-outline-light" onclick="setBold()" title="Bold" data-toggle="tooltip"><i class="fa-solid fa-bold"></i></div>
-                            <div class="btn btn-sm btn-outline-light" onclick="setItalic()" title="Italic" data-toggle="tooltip"><i class="fa-solid fa-italic"></i></div>
-                            <div class="btn btn-sm btn-outline-light" onclick="setUL()" title="Insert bullets" data-toggle="tooltip"><i class="fa-solid fa-list"></i></div>
-                            <div class="btn btn-sm btn-outline-light" onclick="setOL()" title="Insert numbering" data-toggle="tooltip"><i class="fa-solid fa-list-ol"></i></div>
-                            <div class="btn btn-sm btn-outline-light" onclick="setBR()" title="Insert new line" data-toggle="tooltip"><i class="fa-solid fa-plus"></i></div>
-                            <div class="btn btn-sm btn-outline-light" onclick="setAnchor()" title="Insert link" data-toggle="tooltip"><i class="fa-solid fa-link"></i></div>
-                        </span>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="note-body" id="text-body" rows="12" placeholder="Begin writing about anything now...." class="form-control <?php echo (!empty($_err_note_body)) ? 'is-invalid' : ''; ?>"><?php echo $note_body; ?></textarea>
-                        <span class="invalid-feedback"><?php echo $_err_note_body ;?></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" name="save-note" class="btn btn-outline-success form-control" value="Save this note">
-                    </div>
-                </form>
+            <div class="card" style="width: max;">
+                <div class="card-header"><h2>Start writing...</h3></div>
             </div>
-        </div>
+            <div class="card mt-2">
+                <div class="card-body">
+                    <form action="home.php" method="POST">
+                        <div class="form-group">
+                            <label>My Title</label>
+                            <input type="text" name="note-title" placeholder="I want to write something about...." class="form-control <?php echo (!empty($_err_note_title)) ? 'is-invalid' : ''; ?>" value="<?php echo $note_title ; ?>">
+                            <span class="invalid-feedback"><?php echo $_err_note_title ;?></span>
+                        </div>
+                        <div class="form-group">
+                            <span>
+                                <div class="btn btn-sm btn-outline-light" onclick="setBold()" title="Bold" data-toggle="tooltip"><i class="fa-solid fa-bold"></i></div>
+                                <div class="btn btn-sm btn-outline-light" onclick="setItalic()" title="Italic" data-toggle="tooltip"><i class="fa-solid fa-italic"></i></div>
+                                <div class="btn btn-sm btn-outline-light" onclick="setUL()" title="Insert bullets" data-toggle="tooltip"><i class="fa-solid fa-list"></i></div>
+                                <div class="btn btn-sm btn-outline-light" onclick="setOL()" title="Insert numbering" data-toggle="tooltip"><i class="fa-solid fa-list-ol"></i></div>
+                                <div class="btn btn-sm btn-outline-light" onclick="setBR()" title="Insert new line" data-toggle="tooltip"><i class="fa-solid fa-plus"></i></div>
+                                <div class="btn btn-sm btn-outline-light" onclick="setAnchor()" title="Insert link" data-toggle="tooltip"><i class="fa-solid fa-link"></i></div>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="note-body" id="text-body" rows="12" placeholder="Begin writing about anything now...." class="form-control <?php echo (!empty($_err_note_body)) ? 'is-invalid' : ''; ?>"><?php echo $note_body; ?></textarea>
+                            <span class="invalid-feedback"><?php echo $_err_note_body ;?></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="save-note" class="btn btn-outline-success form-control" value="Save this note">
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="../../js/setEditorSymbols.js"></script>

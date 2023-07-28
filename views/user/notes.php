@@ -49,7 +49,10 @@ $user_id = Utils::getUserID_inSession($_SESSION["user-username"]);
         .note-tile span {
             flex-grow: 1;
         }
-
+        #notes_active {
+            color:white;
+            font-weight:bold;
+        }
     </style>
 </head>
 <body>

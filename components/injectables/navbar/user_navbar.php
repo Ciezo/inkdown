@@ -7,13 +7,13 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="../../views/user/home.php">Editor</a>
+          <a class="nav-link" id="home_active" aria-current="page" href="../../views/user/home.php">Editor</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../views/user/notes.php">Notes</a>
+          <a class="nav-link" id="notes_active" href="../../views/user/notes.php">Notes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../views/user/trash.php">Trash</a>
+          <a class="nav-link" id="trash_active" href="../../views/user/trash.php">Trash</a>
         </li>
         <li class="nav-item dropdown">
           <button class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -28,12 +28,12 @@
                 </b>
               </span>
             </li>
-            <li><a class="dropdown-item" href="../../views/user/account.php">Account</a></li>
+            <li><a class="dropdown-item" id="acc_active" href="../../views/user/account.php">Account</a></li>
             <hr>
-            <li><a class="dropdown-item" href="../../views/user/license.php">License</a></li>
-            <li><a class="dropdown-item" href="../../views/user/terms.php">Terms</a></li>
-            <li><a class="dropdown-item" href="../../views/user/privacy.php">Privacy</a></li>
-            <li><a class="dropdown-item" href="../../views/user/conduct.php">Conduct</a></li>
+            <li><a class="dropdown-item" id="license_active" href="../../views/user/license.php">License</a></li>
+            <li><a class="dropdown-item" id="terms_active" href="../../views/user/terms.php">Terms</a></li>
+            <li><a class="dropdown-item" id="privacy_active" href="../../views/user/privacy.php">Privacy</a></li>
+            <li><a class="dropdown-item" id="conduct_active" href="../../views/user/conduct.php">Conduct</a></li>
             <hr>
             <button type="button" class="dropdown-item" data-toggle="modal" data-target="#logoutPrompt">
               Logout

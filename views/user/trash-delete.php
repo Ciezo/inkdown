@@ -56,6 +56,11 @@ else {
             padding-top: 50px;
             width: 700px;
         }
+
+        #trash_active {
+            color:white;
+            font-weight:bold;
+        }
     </style>
 </head>
 <body>
