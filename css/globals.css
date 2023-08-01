@@ -2,6 +2,9 @@
     max-width: 100%;
     scroll-behavior: smooth;
     text-decoration: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 /* width */

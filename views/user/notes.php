@@ -19,6 +19,7 @@ $user_id = Utils::getUserID_inSession($_SESSION["user-username"]);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="../../assets/icon/icon.png" type="image/png">
     <title>Notes | Inkdown</title>
 
