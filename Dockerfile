@@ -28,7 +28,7 @@ FROM composer:latest
 COPY package.json .
 COPY composer.json .  
 
-RUN npm install 
+CMD ["npm, install"] 
 RUN composer install 
 
 # Copy the entire contents of the custom project structure
