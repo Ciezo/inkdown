@@ -26,7 +26,7 @@ FROM node:8
 FROM composer:latest
 
 COPY package.json .
-COPY conposer.json .  
+COPY composer.json .  
 
 RUN npm install 
 RUN composer install 
