@@ -1,3 +1,5 @@
 .env
 node_modules
-sql
+sql/register_admin.sh
+sql/register_admin.sql
+sql/setup.sh
